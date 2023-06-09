@@ -8,6 +8,10 @@ After that we will see a brief overview on the power electronic part inside our 
 
 You can find some useful references inside the AnalogElectronic directory.
 
+Useful links:
+	- https://www.analog.com/en/education/education-library/op-amp-applications-handbook.html
+	- https://www.analog.com/en/education/education-library/high-speed-design-techniques.html
+
 ## Second part
 In the second part of the training we will see the microcontroller STM32 and how to use it.
 First of all you need to dowloand and install it from ST:
