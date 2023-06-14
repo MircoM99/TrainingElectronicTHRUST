@@ -18,6 +18,7 @@ Useful links:
 In the second part of the training we will see the microcontroller STM32 and how to use it.
 First of all you need to dowloand and install it the IDE from ST:
  - https://www.st.com/en/development-tools/stm32cubeide.html
+ 
 After that we will see how to use: GPIO, Interrupt, Timers, DMA, ADC and USART.
 
 You can find some useful references inside the uC directory.
