@@ -10,6 +10,8 @@ You can find some useful references inside the AnalogElectronic directory.
 
 Useful links:
 	- https://www.analog.com/en/education/education-library/op-amp-applications-handbook.html
+	- https://www.analog.com/en/education/education-library/data-conversion-handbook.html
+	- https://www.analog.com/en/education/education-library/linear-circuit-design-handbook.html
 	- https://www.analog.com/en/education/education-library/high-speed-design-techniques.html
 
 ## Second part
