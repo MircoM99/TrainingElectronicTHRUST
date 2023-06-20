@@ -7,3 +7,8 @@ useful to program the uC.
 ## Source code
 In each directory is present the project for the STM32CubeIDE presented during the training lessons:
 
+## Lesson 1
+In the first lessn we take a look at the STM32 IDE enviroments and we develop togheter a simple software which convert 4 channel when the external
+button is pressed. The conversion data will be sent to the USART and visualized on Putty.
+
+
