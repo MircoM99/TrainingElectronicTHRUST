@@ -24,3 +24,19 @@ After that we will see how to use: GPIO, Interrupt, Timers, DMA, ADC and USART.
 You can find some useful references inside the uC directory.
 
 At the end of the course there will be a small exam.
+
+## Safety courses
+In order to garantee the acess of the THRUST Laboratory for the next future you should attend some Safety courses mandatory for the 
+university of Padova.
+
+You should do the general training 4h (italian or english language as you prefer):
+
+	- https://elearning.unipd.it/formazione/course/index.php?categoryid=39
+
+and then the high risk course 12h (italian or english language as you prefer):
+
+	- https://elearning.unipd.it/formazione/course/index.php?categoryid=40
+	
+	
+
+

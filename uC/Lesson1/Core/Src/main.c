@@ -18,12 +18,15 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "adc.h"
+#include "dma.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#define HELLO 10
+#include <string.h>
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,6 +47,9 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+extern ADC_HandleTypeDef hadc1;
+extern UART_HandleTypeDef huart2;
+extern uint16_t BufferData[4];
 
 /* USER CODE END PV */
 
@@ -86,7 +92,9 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_USART2_UART_Init();
+  MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -96,12 +104,23 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	HAL_Delay(1000);
-	HAL_GPIO_TogglePin(PIN_LED_GPIO_Port,PIN_LED_Pin);
+
     /* USER CODE BEGIN 3 */
+
   }
   /* USER CODE END 3 */
 }
+
+char TextDataBuffer[60];
+/*This function is called automatically at the end of the ADC conversion*/
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef * hadc){
+	/*Send a message to the PC monitor*/
+	sprintf((char *)TextDataBuffer,"\r%u %u %u %u\n",BufferData[0], BufferData[1], BufferData[2], BufferData[3]);
+	uint16_t len=strlen(TextDataBuffer);
+	/*Trasmission data to the PC*/
+	HAL_UART_Transmit(&huart2, (uint8_t *)TextDataBuffer, len, 10000);
+}
+
 
 /**
   * @brief System Clock Configuration
