@@ -23,6 +23,21 @@ After that we will see how to use: GPIO, Interrupt, Timers, DMA, ADC and USART.
 
 You can find some useful references inside the uC directory.
 
+### Exercise 1
+Write a software wich convert 5 ADC channels (using DMA) and send the data to the PC through the UART. The data conversion must be triggered by the external
+blue button and must continue until it is pressed again. The conversion must be done every 500ms. One the ADC is converting the external green LED must be turned ON.
+
+So: 1 click-> ADC starts to convert every 500ms, 1 click-> ADC stops, 1 click-> ADC start to convert ...
+
+HINT:
+
+1.	To wait use: HAL_Delay(Delay), where Delay is expressed in [ms]
+2.	Use a "Flag" to check if the blue button has been pressed
+
+### Exercise 2
+Start to understand the strucuture of Timer3 looking inside the reference datasheed of the uC.
+
+
 At the end of the course there will be a small exam.
 
 ## Safety courses
