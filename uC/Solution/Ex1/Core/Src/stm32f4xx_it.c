@@ -42,11 +42,12 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
 
-extern ADC_HandleTypeDef hadc1;
-/*
- * uint16_t: Unsigned Integer 16 bit
+/* This variable becomes 1 if the external Blue pushButton is pressed and return to zero if
+ * it is pressed again. The ADC should work only when it is equal to 1.
+ * The function that acts on this variable is EXTI15_10_IRQHandler which is called when
+ * the pushButton is pressed.
  */
-uint16_t BufferData[4];
+uint8_t flag=0;
 
 /* USER CODE END PV */
 
@@ -207,14 +208,34 @@ void SysTick_Handler(void)
 /**
   * @brief This function handles EXTI line[15:10] interrupts.
   */
+
+
 void EXTI15_10_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI15_10_IRQn 0 */
 
+	/*
+	 *This function is called AUTOMATICALLY by the hardware when the external
+	 *Blue PushButton is pressed.
+	 */
+
   /* USER CODE END EXTI15_10_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(B1_Pin);
   /* USER CODE BEGIN EXTI15_10_IRQn 1 */
-  HAL_ADC_Start_DMA(&hadc1,(uint32_t *)BufferData,4);
+  /*
+   * The operator '!' is the NOT logic operator so transform a 0 into 1 and viceversa
+   */
+  flag=!flag;
+
+  /*
+   * Also this code is ok:
+   * if(flag==1){ flag=0;}
+   * if(flag==0){ flag=1;}
+   *
+   *
+   * But flag=!flag; is more compact
+   */
+
   /* USER CODE END EXTI15_10_IRQn 1 */
 }
 
