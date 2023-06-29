@@ -186,7 +186,7 @@ void HAL_ADC_ConvCpltCallback (ADC_HandleTypeDef * hadc)
 	/*Let's construct the message
 	 * NOTE:sprintf returns automatically the length of the message, so "strlen" can be avoided
 	 * */
-	len=sprintf(stringBuffer,"%u %u %u %u %u\r\n",ADCData[0],ADCData[1],ADCData[2],ADCData[3],ADCData[4]);
+	 len=sprintf(stringBuffer,"%u %u %u %u %u\r\n",ADCData[0],ADCData[1],ADCData[2],ADCData[3],ADCData[4]);
 
 	/*Let's send the message*/
 	HAL_UART_Transmit(&huart2, (uint8_t *)stringBuffer, len, 10000);

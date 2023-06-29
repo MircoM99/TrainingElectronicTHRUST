@@ -987,12 +987,12 @@ int main(void)
 	...
 
 080008cc <HAL_ADC_ConvCpltCallback>:
-  }
   /* USER CODE END 3 */
 }
 
 char TextDataBuffer[60];
- void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef * hadc){
+/*This function is called automatically at the end of the ADC conversion*/
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef * hadc){
  80008cc:	b580      	push	{r7, lr}
  80008ce:	b086      	sub	sp, #24
  80008d0:	af02      	add	r7, sp, #8
@@ -1022,6 +1022,7 @@ char TextDataBuffer[60];
  80008fc:	f7ff fc70 	bl	80001e0 <strlen>
  8000900:	4603      	mov	r3, r0
  8000902:	81fb      	strh	r3, [r7, #14]
+	/*Trasmission data to the PC*/
 	HAL_UART_Transmit(&huart2, (uint8_t *)TextDataBuffer, len, 10000);
  8000904:	89fa      	ldrh	r2, [r7, #14]
  8000906:	f242 7310 	movw	r3, #10000	; 0x2710
