@@ -35,7 +35,19 @@ HINT:
 2.	Use a "Flag" to check if the blue button has been pressed
 
 ### Exercise 2
-Start to understand the strucuture of Timer3 looking inside the reference datasheed of the uC.
+Let's consider to have a potentiometer connected on the channel 0 of the ADC, so you can change the voltage on the 
+pin rotating the potentiometer, and 6 LED from pin D13-D8. Implement a software which read the ADC channel every 2ms 
+using TIM3 and turn on a number of LED proportional to the voltage read on the channel. 
+For example if the ADC read a voltage of 3.3/2V the sofware turns on 3 LED and so on...
+Implement the software with a function which has as input the value converted by the ADC and the function perform the LED control.
+The function should have this name:
+
+```c
+	LED_Driver(uint16_t valADC){
+	...
+	}
+```
+
 
 
 At the end of the course there will be a small exam.
